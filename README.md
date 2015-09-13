@@ -1,43 +1,21 @@
-# base64-emoji
+# base64_emoji
 
-Inspired by [base-emoji](https://github.com/pfraze/base-emoji) this
-module allows for transformation of any binary data to and from emoji
-using only 64 different emojicons (+1 for padding).
+Inspired by [base64-emoji](https://github.com/watson/base64-emoji), this python module
+allows for encoding of string objects into emoji and back.
 
 ![emojo-all-the-things](https://cloud.githubusercontent.com/assets/10602/8368864/31a7982c-1b7e-11e5-8731-d1728ddfbafa.jpg)
 
-[![Build status](https://travis-ci.org/watson/base64-emoji.svg?branch=master)](https://travis-ci.org/watson/base64-emoji)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-
-## Installation
-
-```
-npm install base64-emoji
-```
-
 ## Usage
 
-```js
-var base64Emoji = require('base64-emoji')
+```python
+import base64_emoji
 
-var encoded = base64Emoji.encode('Hello World')
-var decoded = base64Emoji.decode(encoded)
+encoded = base64_emoji.encode('Hello World')
+decoded = base64_emoji.decode(encoded)
 
-console.log(encoded.toString()) // => 🍕📙🕡🌵🎎📙🚢😮🕡🐗🏦🕤🎎📙🕖📫
-console.log(decoded.toString()) // => Hello World
+print(encoded) # => 🍕📙🕡🌵🎎📙🚢😮🕡🐗🏦🕤🎎📙🕖📫
+print(decoded) # => Hello World
 ```
-
-## API
-
-**`encode(buffer|string)`**
-
-The `encode` function takes a buffer or a string and returns a buffer
-containing the encoded bytes.
-
-**`decode(buffer|string)`**
-
-The `decode` function takes a buffer or a string and returns a buffer
-containing the decoded bytes.
 
 ## License
 
