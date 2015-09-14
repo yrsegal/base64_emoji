@@ -13,20 +13,15 @@ if sys.version_info.major == 2:
 	emojisize = 2
 	fastrange = xrange
 	requiredtype = str
-	charconvert = str
 else:
 	emojisize = 1
 	fastrange = range
-	def requiredtype(buf):
-		return bytes(buf, 'utf8')
-	charconvert = chr
-
-
+	requiredtype = lambda buf: bytes(buf, 'utf8')
 
 def encode(buf):
 	buf = requiredtype(buf)
-	b64buf = base64.b64encode(buf)
-	return "".join(map(lambda x: encode_dict[charconvert(x)], b64buf))
+	b64buf = base64.b64encode(buf).decode()
+	return "".join(map(lambda x: encode_dict[x], b64buf))
 
 def decode(buf):
 	splitbuf = [buf[i*emojisize:i*emojisize+emojisize] for i in fastrange(int(len(buf)/emojisize))]
